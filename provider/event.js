@@ -14,4 +14,3 @@ const runWebHook = (payload) => {
 };
 
 export default runWebHook;
-// module.exports = { runWebHook };
