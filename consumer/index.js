@@ -1,11 +1,19 @@
 import express from "express";
+
 const app = express();
-const port = 3000;
+const PORT = 3000;
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Consumer server work!");
 });
 
-app.listen(port, () => {
-  console.log(`Consumer Server listening on port ${port}`);
+app.post("/webhook", (req, res) => {
+  console.log("webhook received", req.body);
+  res.status(200).send("webhook received");
+});
+
+app.listen(PORT, () => {
+  console.log(`Consumer Server listening on port ${PORT}`);
 });
